@@ -41,6 +41,7 @@ func Decode(encoded string) ([]byte, error) {
 	return decoded, err
 }
 
+// TODO: (mmc)  Should this be here?  And checkIfexist may need to be cleaned up
 type HS struct {
 	count   int64
 	File    string
