@@ -6,8 +6,8 @@ import (
 
 	"github.com/cwxstat/rabbitmq/lib/flag"
 
-	"github.com/cwxstat/rabbitmq/lib/handle"
 	"github.com/cwxstat/rabbitmq/lib/consumer"
+	"github.com/cwxstat/rabbitmq/lib/handle"
 	"github.com/cwxstat/rabbitmq/lib/producer"
 	"github.com/cwxstat/rabbitmq/lib/setup"
 )

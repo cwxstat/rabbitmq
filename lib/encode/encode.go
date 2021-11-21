@@ -3,7 +3,6 @@ package encode
 import (
 	"encoding/base64"
 	"os"
-
 )
 
 func ReadEncode(file string) (string, error) {
@@ -35,4 +34,3 @@ func Decode(encoded string) ([]byte, error) {
 	decoded, err := base64.StdEncoding.DecodeString(encoded)
 	return decoded, err
 }
-

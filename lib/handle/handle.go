@@ -1,17 +1,15 @@
 package handle
 
 import (
-
 	"fmt"
 	"io/fs"
 	"os"
 
-	"github.com/cwxstat/rabbitmq/lib/encode"
 	"github.com/cwxstat/rabbitmq/lib/compress"
+	"github.com/cwxstat/rabbitmq/lib/encode"
 	log "github.com/sirupsen/logrus"
 	"github.com/streadway/amqp"
 )
-
 
 type HS struct {
 	count   int64
@@ -21,7 +19,7 @@ type HS struct {
 	FS      fs.FileMode
 }
 
-func (h *HS) checkIfexist() error {
+func (h *HS) createDirIfNotExist() error {
 
 	if h.DestDir != "" {
 		_, err := os.Stat(h.DestDir)
@@ -44,7 +42,7 @@ func (h *HS) Handle(deliveries <-chan amqp.Delivery, done chan error) {
 		h.count += 1
 		h.data = string(d.Body)
 		log.Printf("here... file:(%s)\n", h.File)
-		err := h.checkIfexist()
+		err := h.createDirIfNotExist()
 		if err != nil {
 			log.Printf("Handle file create error: %s\n", err)
 		}
