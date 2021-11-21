@@ -6,6 +6,7 @@ import (
 
 	"github.com/cwxstat/rabbitmq/lib/flag"
 
+	"github.com/cwxstat/rabbitmq/lib/handle"
 	"github.com/cwxstat/rabbitmq/lib/consumer"
 	"github.com/cwxstat/rabbitmq/lib/producer"
 	"github.com/cwxstat/rabbitmq/lib/setup"
@@ -19,7 +20,7 @@ type GZ struct {
 	routingKey  string
 	queue       string
 	consumerQ   string
-	handler     *encode.HS
+	handler     *handle.HS
 
 	setup *setup.Setup
 	f     *flag.Flags
@@ -78,7 +79,7 @@ func (g *GZ) DestDir(dir string) *GZ {
 }
 
 func (g *GZ) HandleFile(gzfile, destdir string) *GZ {
-	g.handler = &encode.HS{}
+	g.handler = &handle.HS{}
 	g.handler.DestDir = destdir
 	g.handler.File = gzfile
 
