@@ -1,4 +1,4 @@
-package handle_test
+package handle
 
 import (
 	"testing"
