@@ -48,3 +48,12 @@ docker run -d -v config/:/etc/rabbitmq/conf.d -p 15672:15672 -p 5671:5671 rabbit
   
 docker exec -ti rabbitmq /bin/bash  
 ```
+
+# Ginko for tests
+
+```bash
+cd utils
+ginkgo bootstrap
+ginkgo generate utils
+
+```
