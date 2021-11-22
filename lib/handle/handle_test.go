@@ -14,8 +14,8 @@ var _ = Describe("Handle", func() {
 	)
 
 	BeforeEach(func() {
-		h = HS{DestDir: destDir}
 		os.RemoveAll(destDir)
+		h = HS{DestDir: destDir}
 
 	})
 
